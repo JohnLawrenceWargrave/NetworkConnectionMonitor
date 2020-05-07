@@ -26,7 +26,7 @@ def speedtest ():
         pass
 
 
-    f.write('{},{},{},{},{}\r\n'.format(time.strftime('%m/%d/%y'), time.strftime('%H:%M:%S'), ping, download, upload)) #seconds are just necessary to adjust the timer, since the test needs about 30s it has no significance for the data
+    f.write('{},{},{},{},{}\r\n'.format(time.strftime('%d/%m/%y'), time.strftime('%H:%M:%S'), ping, download, upload)) #seconds are just necessary to adjust the timer, since the test needs about 30s it has no significance for the data
     f.close()
     
 while 1:
