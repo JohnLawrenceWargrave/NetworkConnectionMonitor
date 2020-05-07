@@ -19,19 +19,15 @@ def speedtest ():
         pass
 
     try:
-        f = open('/home/pi/ownCloud/NetworkMonitoring/speedtest.csv', 'a+')
-        if os.stat('/home/pi/ownCloud/NetworkMonitoring/speedtest.csv').st_size == 0:
+        f = open('/home/pi/yourFolder/yourFile.csv', 'a+')                      #opens or creates your file 
+        if os.stat('/home/pi/yourFolder/yourFile.csv').st_size == 0:            #if there was no file it writes the first line in the File
             f.write('Date,Time,Ping (ms),Download (Mbit/s),Upload (Mbit/s)\r\n')
     except:
         pass
 
-    try:
-        f.write('{},{},{},{},{}\r\n'.format(time.strftime('%m/%d/%y'), time.strftime('%H:%M:%S'), ping, download, upload))
-        f.close()
-        
-    except:
-        f.write('{},{},{},{},{}\r\n'.format(time.strftime('%m/%d/%y'), time.strftime('%H:%M:%S'), 'no connection', 0, 0))
-        f.close
+
+    f.write('{},{},{},{},{}\r\n'.format(time.strftime('%m/%d/%y'), time.strftime('%H:%M:%S'), ping, download, upload)) #seconds are just necessary to adjust the timer, since the test needs about 30s it has no significance for the data
+    f.close()
     
 while 1:
     speedtest()
